@@ -1,21 +1,28 @@
 package com.bridgelabz;
+import java.util.Scanner;
 
 public class JavaProgramDaySix {
 
     public static void main(String[] args) {
-
-
-        System.out.println("Welcome To Java Program");
-
-        int n1=0,n2=1,n3,i,count=10;
-        System.out.print(n1+" "+n2);    //printing 0 and 1
-
-        for(i=2;i<count;++i)    //loop starts from 2 because 0 and 1 are already printed
-        {
-            n3=n1+n2;
-            System.out.print(" "+n3);
-            n1=n2;
-            n2=n3;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter a number : ");
+        int n = s.nextInt();
+        if (isPrime(n)) {
+            System.out.println(n + " is a prime number");
+        } else {
+            System.out.println(n + " is not a prime number");
         }
+    }
+
+    public static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i < Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
